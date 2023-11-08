@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.MainController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <ImageView disable="true" fitHeight="187.0" fitWidth="236.0" layoutX="1099.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/pedalem_logo.png" />
+            </image>
+        </ImageView>
+        <Button layoutX="1005.0" layoutY="366.0" mnemonicParsing="false" onAction="#importCSV" prefHeight="45.0" prefWidth="174.0" style="-fx-background-color: #169ccd;" text="Import CSV" textFill="WHITE">
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <font>
+                <Font size="16.0" />
+            </font></Button>
+        <ImageView disable="true" fitHeight="107.0" fitWidth="236.0" layoutX="625.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/bicing_logo.png" />
+            </image>
+        </ImageView>
+        <ImageView disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="872.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/cidai_logo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="fileInfo" contentDisplay="CENTER" layoutX="1011.0" layoutY="468.0" prefHeight="34.0" prefWidth="68.0" textAlignment="CENTER" />
+        <Label fx:id="file" layoutX="1107.0" layoutY="462.0" prefHeight="45.0" prefWidth="89.0" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <CheckComboBox fx:id="horarioChoice" layoutX="538.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0"/>
+        <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/Marca_UPC_IDEAI_BLAU.png" />
+            </image>
+        </ImageView>
+        <Pane layoutX="3.0" layoutY="201.0" prefHeight="118.0" prefWidth="1375.0" style="-fx-background-color: #169ccd;">
+            <children>
+                <Label layoutX="577.0" layoutY="37.0" text="i-ViSta4bike" textFill="WHITE">
+                    <font>
+                        <Font size="37.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <CheckComboBox fx:id="barrioChoice" layoutX="128.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0" />
+        <RadioButton fx:id="displayPlots" layoutX="128.0" layoutY="466.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="131.0" selected="true" text="Display plots">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="generatePDF" layoutX="128.0" layoutY="500.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" text="Generate pdf report">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="generateCSV" layoutX="128.0" layoutY="534.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="174.0" text="Generate .csv">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </RadioButton>
+        <RadioButton fx:id="unexpectedEvents" layoutX="128.0" layoutY="568.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="292.0" selected="true" text="Report only unexpected events">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </RadioButton>
+        <Button layoutX="953.0" layoutY="580.0" mnemonicParsing="false" onAction="#okAction" prefHeight="45.0" prefWidth="104.0" text="OK">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button layoutX="1099.0" layoutY="580.0" mnemonicParsing="false" onAction="#exit" prefHeight="45.0" prefWidth="104.0" text="Exit">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+    </children>
+
+</AnchorPane>

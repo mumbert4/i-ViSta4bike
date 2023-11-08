@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.ResultController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="29.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/Marca_UPC_IDEAI_BLAU.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="988.0" layoutY="59.0" text="i-ViSta4bike" textFill="#169ccd">
+            <font>
+                <Font name="System Bold" size="37.0" />
+            </font>
+        </Label>
+        <Label layoutX="184.0" layoutY="146.0" text="Expected Behaviour">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="882.0" layoutY="146.0" text="Observed Behaviour">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="expectedGraph" fitHeight="392.0" fitWidth="551.0" layoutX="29.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="observedGraph" fitHeight="392.0" fitWidth="551.0" layoutX="713.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
+        <Label fx:id="eventType" layoutX="399.0" layoutY="587.0" prefHeight="26.0" prefWidth="358.0" text="Expected Event" textFill="#169ccc">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font></Label>
+        <WebView fx:id="infoText" layoutX="23.0" layoutY="622.0" prefHeight="269.0" prefWidth="1330.0" />
+        <Label layoutX="29.0" layoutY="587.0" text="Prediction for TOMORROW:">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label fx:id="title" layoutX="629.0" layoutY="104.0" text="Label" />
+    </children>
+
+</AnchorPane>
