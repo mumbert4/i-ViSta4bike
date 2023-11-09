@@ -4,6 +4,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -35,7 +36,7 @@ public class ResultController implements Initializable {
     private Label title;
 
     @FXML
-    private WebView infoText;
+    private ListView<String> infoText;
     public String text="";
     public String id="";//barrio(03) y luego franja(03); ej:0303
 
@@ -67,7 +68,9 @@ public class ResultController implements Initializable {
         try{
             //FileReader reader = new FileReader("/home/miquel/Documentos/Solucion/Output/resultado_"+id+".json");
             FileReader reader = new FileReader(path + "/resultado_"+ id +".json");
+            System.out.println("Path:" + path + "/resultado_"+ id +".json");
             JSONTokener tokener = new JSONTokener(reader);
+            System.out.println(tokener);
             JSONArray jsonArray = new JSONArray(tokener);
 
             String respuesta = jsonArray.getJSONObject(0).getString("respuesta");
@@ -83,13 +86,10 @@ public class ResultController implements Initializable {
 
 
                 eventType.setText("Unexpected event");
-                StringBuilder sb = new StringBuilder(text);
                 for(String s: eventos){
-                    sb.append("<li>" + s + "</li>");
+                    infoText.getItems().add(s);
                 }
-                text=sb.toString();
-                System.out.printf(text);
-                infoText.getEngine().loadContent(text);
+
             }
 
         } catch (FileNotFoundException e) {

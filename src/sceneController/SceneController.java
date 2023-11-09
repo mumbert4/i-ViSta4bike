@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -26,7 +27,7 @@ public class SceneController {
     }
     private SceneController() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/main.fxml"));
         this.main = new Scene(fxmlLoader.load(), 320, 240);
         this.stages = new HashMap<>();
         franjas= new HashMap<>();
@@ -51,7 +52,8 @@ public class SceneController {
         FXMLLoader fxmlLoader;
         for(String n : neighbours){
             for(String h: hours){
-                fxmlLoader = new FXMLLoader(ResultController.class.getResource("result.fxml"));
+
+                fxmlLoader = new FXMLLoader(ResultController.class.getResource("/views/result.fxml"));
                 Stage aux = new Stage();
                 aux.setScene(new Scene(fxmlLoader.load(), 320, 240));
                 aux.setWidth(1375);

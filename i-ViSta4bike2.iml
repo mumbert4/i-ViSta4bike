@@ -16,5 +16,17 @@
     <orderEntry type="library" name="openjfx.javafx.base" level="project" />
     <orderEntry type="library" name="openjfx.javafx.graphics" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="controlsfx1" level="project" />
+    <orderEntry type="library" name="kordamp.ikonli.core" level="project" />
+    <orderEntry type="library" name="kordamp.ikonli.javafx" level="project" />
+    <orderEntry type="library" name="kordamp.bootstrapfx.core" level="project" />
+    <orderEntry type="library" name="vladsch.javafx.webview.debugger" level="project" />
+    <orderEntry type="library" name="vladsch.boxed.json" level="project" />
+    <orderEntry type="library" name="glassfish.javax.json" level="project" />
+    <orderEntry type="library" name="java.websocket.Java.WebSocket" level="project" />
+    <orderEntry type="library" name="jetbrains.annotations" level="project" />
+    <orderEntry type="library" name="googlecode.json.simple" level="project" />
+    <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="library" name="hamcrest.core" level="project" />
   </component>
 </module>

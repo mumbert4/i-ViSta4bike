@@ -163,12 +163,32 @@ public class MainController implements Initializable {
 
             for(String n: selectedNeighbours){
                 for(String h: selectedHours){
-                    System.out.println("Ejecutando script para: " + n + " " + h);
-                    String script= "procesoPython.py --neighborhood \"" + n + "\" --timeSlot " + h + " --path " + pathToFile;
-                    System.out.println(script);
-                    //String command = "python3 " + aux + script ;
-                    String command = "python3 " + script;
-                    ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", command);
+//                    System.out.println("Ejecutando script para: " + n + " " + h);
+//                    String script= "procesoPython.py --neighborhood \"" + n + "\" --timeSlot \"" + h + "\" --path \"" + pathToFile.replace("\\","\\\\")+"\"";
+//                    System.out.println(script);
+//                    //String command = "python3 " + aux + script ;
+//                    String command = "python3 " + script;
+//                    ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", command);
+
+                    String pythonInterpreter = "python"; // O la ruta completa a python.exe si es necesario
+                    String pythonScript = "procesoPython.py"; // Reemplaza con la ruta a tu script Python
+
+                    // Argumentos para el script Python
+                    String[] pythonArgs = new String[] {
+                            pythonInterpreter,
+                            pythonScript,
+                            "--neighborhood",
+                            n,
+                            "--timeSlot",
+                            h,
+                            "--path",
+                            pathToFile.replace("\\","\\\\")
+                    };
+
+                    System.out.println(pythonArgs);
+
+                    // Crear el proceso
+                    ProcessBuilder processBuilder = new ProcessBuilder(pythonArgs);
                     processBuilder.redirectErrorStream(true);
 
                     process = processBuilder.start();
