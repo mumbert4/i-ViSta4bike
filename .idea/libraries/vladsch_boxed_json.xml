@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="vladsch.boxed.json" type="repository">
+    <properties maven-id="com.vladsch.boxed-json:boxed-json:0.5.32" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vladsch/boxed-json/boxed-json/0.5.32/boxed-json-0.5.32.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/javax.json/1.1.4/javax.json-1.1.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/15.0/annotations-15.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

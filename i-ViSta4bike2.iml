@@ -28,5 +28,6 @@
     <orderEntry type="library" name="googlecode.json.simple" level="project" />
     <orderEntry type="library" name="junit" level="project" />
     <orderEntry type="library" name="hamcrest.core" level="project" />
+    <orderEntry type="library" name="apache.commons.csv" level="project" />
   </component>
 </module>

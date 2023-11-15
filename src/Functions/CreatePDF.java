@@ -39,25 +39,23 @@ public class CreatePDF {
         franjas.put("Night","05");
     }
 
-    public void createPDF(ArrayList<String> neighbours, ArrayList<String> hours) {
+    public void createPDF(ArrayList<String> neighbours, ArrayList<String> hours, Boolean onlyUnexpected) {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String date = currentDate.format(formatter);
+
+        String path = System.getProperty("user.dir") + "/../Output/" + date;
+        System.out.println("Path pdf " + path);
         for (String n : neighbours) {
+            PDDocument document = new PDDocument();
             String nAux = n.substring(0, n.indexOf('-'));
             try {
                 for (String h : hours) {
-                    PDDocument document = new PDDocument();
-                    boolean first = true;
+
                     String hAux = franjas.get(h);
                     String id = nAux + hAux;
 
-                    PDPage page = null;
-                    PDPageContentStream content = null;
 
-                    LocalDate currentDate = LocalDate.now();
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-                    String date = currentDate.format(formatter);
-
-                    String path = System.getProperty("user.dir") + "/../Output/" + date;
-                    System.out.println("Path pdf " + path);
 
                     PDImageXObject expected = PDImageXObject.createFromFile(path+"/Graficos_average_" + id+ ".png",document);
                     PDImageXObject observed = PDImageXObject.createFromFile(path+"/Graficos_day_" + id+ ".png",document);
@@ -73,6 +71,9 @@ public class CreatePDF {
                     System.out.println("Respuesta: " + respuesta);
                     String text = "Expected";
                     ArrayList<String> eventos = new ArrayList<>();
+                    if(onlyUnexpected && respuesta.equals("Expected")){
+                        continue;
+                    }
                     if (respuesta.equals("Unexpected")) {
                         text = "Unexpected";
                         JSONArray eventosJSON = jsonArray.getJSONObject(0).getJSONArray("eventos");
@@ -80,68 +81,64 @@ public class CreatePDF {
                             eventos.add(eventosJSON.getString(i));
                         }
                     }
+
+                    System.out.println("Hemos continuado");
+
                     PDType1Font font = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
 
                     float margin = 50;
                     float yStart = 400; // Initial position for the first page
                     float yPosition = yStart;
-                    int linesPerPage = 20; // Number of lines per page
+
+                    PDPage page = new PDPage(PDRectangle.A4);
+                    document.addPage(page);
+                    PDPageContentStream content = new PDPageContentStream(document, page);
+                    PDImageXObject logoIdeai = PDImageXObject.createFromFile(
+                            System.getProperty("user.dir") + "/Images/Marca_UPC_IDEAI_BLAU.png", document);
+                    System.out.println(page.getMediaBox().getHeight());
+                    content.drawImage(logoIdeai, 25, 770, 300, 75);
+                    content.drawImage(expected,0,455,300,300);
+                    content.drawImage(observed,300,455,295,300);
+                    content.beginText();
+                    content.setFont(font, 22);
+                    content.newLineAtOffset(400, 800);
+                    content.setNonStrokingColor(new Color(22, 156, 205));
+                    content.showText("i-ViSta4Bike");
+                    content.endText();
+
+
+
+                    content.beginText();
+                    content.setNonStrokingColor(Color.BLACK);
+                    content.setFont(font, 14);
+                    content.newLineAtOffset(60, 760);
+                    content.showText("Expected behaviour");
+                    content.endText();
+                    content.beginText();
+                    content.setFont(font, 14);
+                    content.newLineAtOffset(360, 760);
+                    content.showText("Observed Behaviour");
+                    content.endText();
+
+                    content.beginText();
+                    content.setNonStrokingColor(Color.BLACK);
+                    content.setFont(font, 14);
+                    content.newLineAtOffset(60, 420);
+                    content.showText("Prediction for tomorrow:");
+                    content.endText();
+
+                    content.beginText();
+                    content.setNonStrokingColor(new Color(22, 156, 205));
+                    content.setFont(font, 14);
+                    content.newLineAtOffset(250, 420);
+                    content.showText(text);
+                    content.endText();
+                    content.setNonStrokingColor(Color.BLACK);
                     for (String s : eventos) {
                         if (page == null || content == null) {
                             page = new PDPage(PDRectangle.A4);
                             document.addPage(page);
                             content = new PDPageContentStream(document, page);
-
-
-                            if (first) {
-                                PDImageXObject logoIdeai = PDImageXObject.createFromFile(
-                                        System.getProperty("user.dir") + "/Images/Marca_UPC_IDEAI_BLAU.png", document);
-                                System.out.println(page.getMediaBox().getHeight());
-                                content.drawImage(logoIdeai, 25, 770, 300, 75);
-                                content.drawImage(expected,0,455,300,300);
-                                content.drawImage(observed,300,455,295,300);
-                                content.beginText();
-                                content.setFont(font, 22);
-                                content.newLineAtOffset(400, 800);
-                                content.setNonStrokingColor(new Color(22, 156, 205));
-                                content.showText("i-ViSta4Bike");
-                                content.endText();
-
-
-
-                                content.beginText();
-                                content.setNonStrokingColor(Color.BLACK);
-                                content.setFont(font, 14);
-                                content.newLineAtOffset(60, 760);
-                                content.showText("Expected behaviour");
-                                content.endText();
-                                content.beginText();
-                                content.setFont(font, 14);
-                                content.newLineAtOffset(360, 760);
-                                content.showText("Observed Behaviour");
-                                content.endText();
-
-                                content.beginText();
-                                content.setNonStrokingColor(Color.BLACK);
-                                content.setFont(font, 14);
-                                content.newLineAtOffset(60, 420);
-                                content.showText("Prediction for tomorrow:");
-                                content.endText();
-
-                                content.beginText();
-                                content.setNonStrokingColor(new Color(22, 156, 205));
-                                content.setFont(font, 14);
-                                content.newLineAtOffset(250, 420);
-                                content.showText(text);
-                                content.endText();
-                                content.setNonStrokingColor(Color.BLACK);
-
-
-
-                                first = false;
-                            }
-
-
                         }
 
 
@@ -194,11 +191,12 @@ public class CreatePDF {
                         content.close();
                     }
 
-                    document.save(path + "/resultPDF_" + nAux + hAux + ".pdf");
-                    document.close();
+
 
                     reader.close();
                 }
+                document.save(path + (onlyUnexpected? "/resultUnexpectedPDF_" : "/resultPDF_") + nAux +".pdf");
+                document.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }

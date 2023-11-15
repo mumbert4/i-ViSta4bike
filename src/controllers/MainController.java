@@ -1,6 +1,8 @@
 package controllers;
 
 import Functions.CreatePDF;
+import Functions.MergeCSV;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,20 +35,21 @@ public class MainController implements Initializable {
     private Label file;
 
     @FXML
-    private RadioButton unexpectedEvents;
+    private CheckBox  unexpectedEvents;
 
     @FXML
-    private RadioButton generateCSV;
+    private CheckBox  generateCSV;
 
     @FXML
-    private RadioButton generatePDF;
+    private CheckBox  generatePDF;
     @FXML
-    private RadioButton displayPlots;
+    private CheckBox  displayPlots;
+    public boolean allSelected = false;
 
     public String pathToFile;
-    public HashMap<String,String> franjas;
     private ArrayList<String> selectedNeighbours;
     private ArrayList<String> selectedHours;
+
     @FXML
     void importCSV(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
@@ -69,13 +72,46 @@ public class MainController implements Initializable {
             System.out.println(pathToFile);
         }
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        barrioChoice.getCheckModel().getCheckedIndices().addListener(new ListChangeListener<Integer>() {
+            private boolean changing=false;
+            @Override
+            public void onChanged(Change<? extends Integer> change) {
+                if(!changing){
+                    System.out.println("All selected: "+ allSelected);
+                    System.out.println(barrioChoice.getCheckModel().isChecked(0));
+                }
 
+                if(!changing && barrioChoice.getCheckModel().isChecked(0)){
+                    if(allSelected==false){
+                        System.out.println("Seleccionam tot");
+                        allSelected = true;
+                        changing = true;
+                        barrioChoice.getCheckModel().checkAll();
+                        changing=false;
+                    }
+                    else{
+                        System.out.println("Desseleccionam primer");
+                        allSelected = false;
+                        changing = true;
+                        barrioChoice.getCheckModel().clearCheck(0);
+                        changing=false;
+                    }
+                }
+                else if(allSelected==true && !changing && !barrioChoice.getCheckModel().isChecked(0)){
+                    System.out.println("Deseleccionam tot");
+                    changing = true;
+                    barrioChoice.getCheckModel().clearChecks();
+                    allSelected = false;
+                    changing=false;
 
+                }
+            }
+        });
 
+        barrioChoice.getItems().add("Select all");
         barrioChoice.getItems().add("01-el Raval");
         barrioChoice.getItems().add("02-el Barri Gòtic");
         barrioChoice.getItems().add("03-la Barceloneta");
@@ -154,21 +190,12 @@ public class MainController implements Initializable {
 
     void runPython() throws InterruptedException, MalformedURLException {
         Process process = null;
-        String wd = System.getProperty("user.dir");
-        //String aux = wd+"/../Solucion/scripts/";
-        //String aux = "/home/miquel/Documentos/Solucion/scripts/";
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
         try{
 
             for(String n: selectedNeighbours){
                 for(String h: selectedHours){
-//                    System.out.println("Ejecutando script para: " + n + " " + h);
-//                    String script= "procesoPython.py --neighborhood \"" + n + "\" --timeSlot \"" + h + "\" --path \"" + pathToFile.replace("\\","\\\\")+"\"";
-//                    System.out.println(script);
-//                    //String command = "python3 " + aux + script ;
-//                    String command = "python3 " + script;
-//                    ProcessBuilder processBuilder = new ProcessBuilder("bash", "-c", command);
 
                     String pythonInterpreter = "python"; // O la ruta completa a python.exe si es necesario
                     String pythonScript = "procesoPython.py"; // Reemplaza con la ruta a tu script Python
@@ -223,7 +250,9 @@ public class MainController implements Initializable {
         }
         System.out.println(selectedNeighbours);
         System.out.println(selectedHours);
-        //CreatePDF.getInstance().createPDF();
+        if(allSelected)selectedNeighbours.remove(0);
+        System.out.println("New selected: " + selectedNeighbours);
+
         if(selectedHours.size()== 0 || selectedNeighbours.size()==0 || pathToFile==null){
             System.out.println("Faltan datos para realizar el script");
         }
@@ -233,10 +262,13 @@ public class MainController implements Initializable {
                 SceneController.getInstance().createSearch(selectedNeighbours, selectedHours);
             }
             if(generatePDF.isSelected()){
-                CreatePDF.getInstance().createPDF(selectedNeighbours,selectedHours);
+                CreatePDF.getInstance().createPDF(selectedNeighbours,selectedHours,false);
             }
             if(unexpectedEvents.isSelected()){
-
+                CreatePDF.getInstance().createPDF(selectedNeighbours,selectedHours,true);
+            }
+            if(generateCSV.isSelected()){
+                MergeCSV.getInstance().mergeCSV(selectedNeighbours);
             }
 
         }

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,8 +57,8 @@ public class SceneController {
                 fxmlLoader = new FXMLLoader(ResultController.class.getResource("/views/result.fxml"));
                 Stage aux = new Stage();
                 aux.setScene(new Scene(fxmlLoader.load(), 320, 240));
-                aux.setWidth(1375);
-                aux.setHeight(970);
+                aux.setWidth(Toolkit.getDefaultToolkit().getScreenSize().getWidth()-200);
+                aux.setHeight(Toolkit.getDefaultToolkit().getScreenSize().getHeight()-100);
                 aux.setTitle(n + " " + h);
                 ResultController r = fxmlLoader.getController();
                 r.setTitle(n + " " + h);

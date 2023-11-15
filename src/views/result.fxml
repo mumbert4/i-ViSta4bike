@@ -7,41 +7,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="865.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ResultController">
+<AnchorPane prefHeight="811.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ResultController">
     <children>
-        <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="29.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="29.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/Marca_UPC_IDEAI_BLAU.png" />
             </image>
         </ImageView>
-        <Label layoutX="988.0" layoutY="59.0" text="i-ViSta4bike" textFill="#169ccd">
+        <Label layoutX="989.0" layoutY="31.0" text="i-ViSta4bike" textFill="#169ccd">
             <font>
                 <Font name="System Bold" size="37.0" />
             </font>
         </Label>
-        <Label layoutX="184.0" layoutY="146.0" text="Expected Behaviour">
+        <Label layoutX="183.0" layoutY="112.0" text="Expected Behaviour">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label layoutX="882.0" layoutY="146.0" text="Observed Behaviour">
+        <Label layoutX="881.0" layoutY="112.0" text="Observed Behaviour">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <ImageView fx:id="expectedGraph" fitHeight="392.0" fitWidth="551.0" layoutX="29.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="observedGraph" fitHeight="392.0" fitWidth="551.0" layoutX="713.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
-        <Label fx:id="eventType" layoutX="399.0" layoutY="587.0" prefHeight="26.0" prefWidth="358.0" text="Expected Event" textFill="#169ccc">
+        <ImageView fx:id="expectedGraph" fitHeight="392.0" fitWidth="551.0" layoutX="29.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="observedGraph" fitHeight="392.0" fitWidth="551.0" layoutX="713.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+        <Label fx:id="eventType" layoutX="399.0" layoutY="543.0" prefHeight="26.0" prefWidth="358.0" text="Expected Event" textFill="#169ccc">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font></Label>
-        <Label layoutX="29.0" layoutY="587.0" text="Prediction for TOMORROW:">
+        <Label layoutX="29.0" layoutY="543.0" text="Prediction for TOMORROW:">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>
         </Label>
-        <Label fx:id="title" layoutX="629.0" layoutY="104.0" text="Label" />
-      <ListView fx:id="infoText" layoutX="16.0" layoutY="631.0" prefHeight="200.0" prefWidth="1222.0" />
+        <Label fx:id="title" layoutX="627.0" layoutY="77.0" text="Label" />
+      <ListView fx:id="infoText" layoutX="16.0" layoutY="581.0" prefHeight="194.0" prefWidth="1222.0" />
     </children>
 
 </AnchorPane>

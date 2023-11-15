@@ -3,6 +3,8 @@ package sceneController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class Main extends Application {
     public static void main(String[] args) {
         launch();
@@ -13,8 +15,8 @@ public class Main extends Application {
         SceneController.getInstance().mainStage=stage;
         stage.setTitle("i-ViSta4Bike");
         stage.setScene(SceneController.getInstance().main);
-        stage.setWidth(1375);
-        stage.setHeight(970);
+        stage.setWidth(Toolkit.getDefaultToolkit().getScreenSize().getWidth()-200);
+        stage.setHeight(Toolkit.getDefaultToolkit().getScreenSize().getHeight()-100);
         stage.show();
     }
 }
