@@ -44,7 +44,8 @@ public class MainController implements Initializable {
     private CheckBox  generatePDF;
     @FXML
     private CheckBox  displayPlots;
-    public boolean allSelected = false;
+    public boolean allSelectedBarrio = false;
+    public boolean allSelectedHorario = false;
 
     public String pathToFile;
     private ArrayList<String> selectedNeighbours;
@@ -79,32 +80,61 @@ public class MainController implements Initializable {
             private boolean changing=false;
             @Override
             public void onChanged(Change<? extends Integer> change) {
-                if(!changing){
-                    System.out.println("All selected: "+ allSelected);
-                    System.out.println(barrioChoice.getCheckModel().isChecked(0));
-                }
 
                 if(!changing && barrioChoice.getCheckModel().isChecked(0)){
-                    if(allSelected==false){
-                        System.out.println("Seleccionam tot");
-                        allSelected = true;
+                    if(allSelectedBarrio==false){
+                        allSelectedBarrio = true;
                         changing = true;
                         barrioChoice.getCheckModel().checkAll();
                         changing=false;
                     }
                     else{
-                        System.out.println("Desseleccionam primer");
-                        allSelected = false;
+                        allSelectedBarrio = false;
                         changing = true;
                         barrioChoice.getCheckModel().clearCheck(0);
                         changing=false;
                     }
                 }
-                else if(allSelected==true && !changing && !barrioChoice.getCheckModel().isChecked(0)){
-                    System.out.println("Deseleccionam tot");
+                else if(allSelectedBarrio==true && !changing && !barrioChoice.getCheckModel().isChecked(0)){
                     changing = true;
                     barrioChoice.getCheckModel().clearChecks();
-                    allSelected = false;
+                    allSelectedBarrio = false;
+                    changing=false;
+
+                }
+            }
+        });
+
+        horarioChoice.getCheckModel().getCheckedIndices().addListener(new ListChangeListener<Integer>() {
+            private boolean changing=false;
+            @Override
+            public void onChanged(Change<? extends Integer> change) {
+                if(!changing){
+                    System.out.println("All selected: "+ allSelectedHorario);
+                    System.out.println(horarioChoice.getCheckModel().isChecked(0));
+                }
+
+                if(!changing && horarioChoice.getCheckModel().isChecked(0)){
+                    if(allSelectedHorario==false){
+                        System.out.println("Seleccionam tot");
+                        allSelectedHorario = true;
+                        changing = true;
+                        horarioChoice.getCheckModel().checkAll();
+                        changing=false;
+                    }
+                    else{
+                        System.out.println("Desseleccionam primer");
+                        allSelectedHorario = false;
+                        changing = true;
+                        horarioChoice.getCheckModel().clearCheck(0);
+                        changing=false;
+                    }
+                }
+                else if(allSelectedHorario==true && !changing && !horarioChoice.getCheckModel().isChecked(0)){
+                    System.out.println("Deseleccionam tot");
+                    changing = true;
+                    horarioChoice.getCheckModel().clearChecks();
+                    allSelectedHorario = false;
                     changing=false;
 
                 }
@@ -176,7 +206,7 @@ public class MainController implements Initializable {
         barrioChoice.getItems().add("72-Sant Martí de Provençals");
         barrioChoice.getItems().add("73-la Verneda i la Pau");
 
-
+        horarioChoice.getItems().add("Select all");
         horarioChoice.getItems().add("Morning: from 6:00 h to 12:00 h");
         horarioChoice.getItems().add("Afternoon: from 12:00 h to 18:00 h");
         horarioChoice.getItems().add("Evening: from 18:00 h to 21:00 h");
@@ -212,7 +242,6 @@ public class MainController implements Initializable {
                             pathToFile.replace("\\","\\\\")
                     };
 
-                    System.out.println(pythonArgs);
 
                     // Crear el proceso
                     ProcessBuilder processBuilder = new ProcessBuilder(pythonArgs);
@@ -246,18 +275,21 @@ public class MainController implements Initializable {
         selectedHours = new ArrayList<String>();
         for(String s : horarioChoice.getCheckModel().getCheckedItems()){
             int index = s.indexOf(':');
-            selectedHours.add(s.substring(0,index));
+            if(index>-1) selectedHours.add(s.substring(0,index));
+            else selectedHours.add(s);
         }
         System.out.println(selectedNeighbours);
         System.out.println(selectedHours);
-        if(allSelected)selectedNeighbours.remove(0);
+        if(allSelectedBarrio)selectedNeighbours.remove(0);
+        if(allSelectedHorario)selectedHours.remove(0);
         System.out.println("New selected: " + selectedNeighbours);
+        System.out.println("New selected: " + selectedHours);
 
         if(selectedHours.size()== 0 || selectedNeighbours.size()==0 || pathToFile==null){
             System.out.println("Faltan datos para realizar el script");
         }
         else{
-            runPython();
+            //runPython();
             if(displayPlots.isSelected()){
                 SceneController.getInstance().createSearch(selectedNeighbours, selectedHours);
             }

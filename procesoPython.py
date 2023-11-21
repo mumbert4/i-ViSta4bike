@@ -4,8 +4,6 @@ Created on Tue Oct 24 00:54:25 2023
 
 @author: User
 """
-
-
 import json
 import joblib
 import pandas as pd
@@ -24,14 +22,13 @@ import datetime as dt  # Usar 'dt' como alias en lugar de 'datetime'
 import os
 from pathlib import Path
 
-from jinja2 import Template
-
 import argparse
 
 import funcionesGraphs
 import funcionesTreatment
 from unidecode import unidecode
 
+import shutil
 
 def solucionApp (barrio, franja, rutaCSV):
     # =============================================================================
@@ -47,10 +44,7 @@ def solucionApp (barrio, franja, rutaCSV):
     
     # =============================================================================
     #fichero = "Trips_2021_05.csv"
-    
-    
-    
-    
+       
     # =============================================================================
     # Obtener la fecha de hoy
     hoy = dt.date.today()
@@ -70,7 +64,6 @@ def solucionApp (barrio, franja, rutaCSV):
     # Leemos los datos de entrada
     datosEntrada = pd.read_csv(rutaCSV)
     
-
     estacionesSeleccionadas = estaciones[barrio]
     
     # Nos quedamos con los datos necesarios a nivel de barrio
@@ -100,19 +93,11 @@ def solucionApp (barrio, franja, rutaCSV):
         os.makedirs(CARPETAOUTPUT)
     
     # Realizamos los dibujos de los grafos
-    funcionesGraphs.getPlotsInInterval(matrizDesplazamientos, estacionesSeleccionadas, estacionesEspecificas, neighbourhood_name = barrio, 
-                       time_zone = franjaAve, tipo = "day")
+    funcionesGraphs.getPlotsInInterval(matrizDesplazamientos, estacionesSeleccionadas, estacionesEspecificas, neighbourhood_name = barrio, time_zone = franjaAve, tipo = "day")
     
-    # Llegim les dades del grafos 
-    grafo_average = pd.read_csv(GRAFSINPUT + "graf_" + str(barrioAve) + str(diaAve) + str(franjaAve) + ".csv")
-    
-    # Añadimos el nombre de las columnas  >>> Estoy AQUI
-    grafo_average.columns = pd.Index(estacionesSeleccionadas, name = "Start Station Id",dtype= np.int64)
-    grafo_average.index = pd.Index(estacionesSeleccionadas, name = "End Station Id",dtype= np.int64)
-    
-    funcionesGraphs.getPlotsInInterval(grafo_average, estacionesSeleccionadas, estacionesEspecificas, neighbourhood_name = barrio, 
-                       time_zone = franjaAve, tipo = "average")
-    
+    # Copiamos en la carpeta Output el grafo average necesarios
+    shutil.copy(GRAFSINPUT + "graf_" + str(barrioAve) + str(franjaAve) + str(diaAve) + ".png", CARPETAOUTPUT + "/Graficos_average_" + str(barrioAve) + str(franjaAve) + ".png")
+		
     # creamos la matriz para que pueda ser leeida por el modelo
     array = funcionesTreatment.convertirMatriz(matrizNormalizadaDesplazamientos, arrays = True)
     
@@ -134,7 +119,7 @@ def solucionApp (barrio, franja, rutaCSV):
     if response[0] != "Normal":
         # Llamamos a la página de barcelona activa
         txt = "Dia Anómalo"
-        agenda = funcionesTreatment.accesAgenda()
+        agenda = pd.read_csv(CARPETAOUTPUT + "agendaBarcelona.csv")
         
         # Nos quedamos sólo con los eventos correspondientes a dicho evento 
         eventos = agenda.loc[agenda.neighborhood_id == str(barrioAve), ]

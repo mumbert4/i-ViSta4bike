@@ -142,20 +142,6 @@ public class CreatePDF {
                         }
 
 
-//                        content.setFont(font, 12);
-//                        content.beginText();
-//                        content.setNonStrokingColor(Color.BLACK);
-//                        content.newLineAtOffset(margin, yPosition);
-//                        content.showText(s);
-//                        content.endText();
-//                        yPosition -= 15; // Adjust this value based on your desired line spacing
-//                        if (yPosition < 50) {
-//                            content.close();
-//                            page = null;
-//                            content = null;
-//                            yPosition = new PDPage().getMediaBox().getHeight()-margin;
-//                        }
-
                         ArrayList<String> lines = splitString(s, 95);
                         for (String line : lines) {
                             if (yPosition < margin) {

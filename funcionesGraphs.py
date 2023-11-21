@@ -16,8 +16,6 @@ import os
 
 import datetime as dt
 
-
-
 # =============================================================================
 def getPlotsInInterval(matrizDistancias, lista_estaciones, tabla_estaciones, neighbourhood_name, time_zone, tipo = "day"):
     # print(f"Shape de la matriu d'adjacencies: {matrizDistancias.shape}")

@@ -61,7 +61,7 @@ public class SceneController {
                 aux.setHeight(Toolkit.getDefaultToolkit().getScreenSize().getHeight()-100);
                 aux.setTitle(n + " " + h);
                 ResultController r = fxmlLoader.getController();
-                r.setTitle(n + " " + h);
+                r.setTitle(n,h);
                 int index = n.indexOf('-');
                 String nAux = n.substring(0,index);
                 r.setId(nAux+franjas.get(h));

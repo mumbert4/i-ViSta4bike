@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="i-ViSta4bike2:jar" />
+      <artifact name="i-ViSta4bike2Mark2:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,11 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4ecacbc-fec8-4718-b34d-552f73f6a492" name="Changes" comment="Prova">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/i_ViSta4bike2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i-ViSta4bike2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/i-ViSta4bike2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionesGraphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcionesGraphs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i-ViSta4bike2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/i-ViSta4bike2Mark2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesoPython.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesoPython.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Functions/CreatePDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/CreatePDF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ResultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sceneController/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sceneController/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sceneController/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sceneController/SceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.fxml" afterDir="false" />
@@ -61,28 +65,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Miquel/IdeaProjects/i-ViSta4bike2&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.29315478&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Miquel/IdeaProjects/i-ViSta4bike2Mark2",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.29315478",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Miquel\IdeaProjects\i-ViSta4bike2Mark2" />
       <recent name="C:\Users\Miquel\IdeaProjects\i-ViSta4bike2" />
       <recent name="C:\Users\Miquel\IdeaProjects\i-ViSta4bike2\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Miquel\IdeaProjects\i-ViSta4bike2Mark2\out\artifacts\i_ViSta4bike2Mark2_jar" />
       <recent name="C:\Users\Miquel\IdeaProjects\i-ViSta4bike2" />
       <recent name="C:\Users\Miquel\IdeaProjects\i-ViSta4bike2\out\artifacts\i_ViSta4bike" />
     </key>
@@ -90,8 +96,8 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sceneController.Main" />
-      <module name="i-ViSta4bike2" />
-      <option name="VM_PARAMETERS" value="--module-path E:\Downloads\openjfx-21.0.1_windows-x64_bin-sdk\javafx-sdk-21.0.1\lib --add-modules javafx.controls,javafx.fxml " />
+      <module name="i-ViSta4bike2Mark2" />
+      <option name="VM_PARAMETERS" value="--module-path javafx-sdk-21.0.1\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sceneController.*" />
@@ -101,6 +107,10 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="i-ViSta4bike2.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/i_ViSta4bike2Mark2_jar/i-ViSta4bike2.jar" />
+      <method v="2" />
     </configuration>
     <configuration name="i-ViSta4bike2.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/i_ViSta4bike2_jar/i-ViSta4bike2.jar" />
@@ -112,12 +122,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JAR Application.i-ViSta4bike2.jar (1)" />
       <item itemvalue="JAR Application.i-ViSta4bike.jar" />
       <item itemvalue="JAR Application.i-ViSta4bike2.jar" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.i-ViSta4bike2.jar (1)" />
         <item itemvalue="JAR Application.i-ViSta4bike2.jar" />
         <item itemvalue="JAR Application.i-ViSta4bike.jar" />
       </list>

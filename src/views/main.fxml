@@ -11,9 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <children>
-        <ImageView disable="true" fitHeight="187.0" fitWidth="236.0" layoutX="1099.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView disable="true" fitHeight="187.0" fitWidth="236.0" layoutX="1025.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/pedalem_logo.png" />
             </image>
@@ -25,12 +25,12 @@
             <font>
                 <Font size="16.0" />
             </font></Button>
-        <ImageView disable="true" fitHeight="107.0" fitWidth="236.0" layoutX="625.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView disable="true" fitHeight="107.0" fitWidth="236.0" layoutX="582.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/bicing_logo.png" />
             </image>
         </ImageView>
-        <ImageView disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="872.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="19.0" layoutY="571.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/cidai_logo.png" />
             </image>
@@ -42,6 +42,7 @@
             </font>
         </Label>
         <CheckComboBox fx:id="horarioChoice" layoutX="538.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0" />
+
         <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/Marca_UPC_IDEAI_BLAU.png" />
@@ -49,7 +50,7 @@
         </ImageView>
         <Pane layoutX="3.0" layoutY="201.0" prefHeight="118.0" prefWidth="1375.0" style="-fx-background-color: #169ccd;">
             <children>
-                <Label layoutX="577.0" layoutY="37.0" text="i-ViSta4bike" textFill="WHITE">
+                <Label layoutX="577.0" layoutY="37.0" text="i-ViSta4bike®" textFill="WHITE">
                     <font>
                         <Font size="37.0" />
                     </font>
@@ -57,36 +58,42 @@
             </children>
         </Pane>
         <CheckComboBox fx:id="barrioChoice" layoutX="128.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0" />
-        <Button layoutX="953.0" layoutY="580.0" mnemonicParsing="false" onAction="#okAction" prefHeight="45.0" prefWidth="104.0" text="OK">
+
+        <Button layoutX="954.0" layoutY="515.0" mnemonicParsing="false" onAction="#okAction" prefHeight="45.0" prefWidth="104.0" text="OK">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-        <Button layoutX="1099.0" layoutY="580.0" mnemonicParsing="false" onAction="#exit" prefHeight="45.0" prefWidth="104.0" text="Exit">
+        <Button layoutX="1100.0" layoutY="515.0" mnemonicParsing="false" onAction="#exit" prefHeight="45.0" prefWidth="104.0" text="Exit">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-      <CheckBox fx:id="displayPlots" layoutX="161.0" layoutY="502.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" selected="true" text="Display plots">
+      <CheckBox fx:id="displayPlots" layoutX="161.0" layoutY="435.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" selected="true" text="Display plots">
          <font>
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="generatePDF" layoutX="161.0" layoutY="538.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" text="Generate pdf report">
+      <CheckBox fx:id="generatePDF" layoutX="161.0" layoutY="471.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" text="Generate pdf report">
          <font>
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="unexpectedEvents" layoutX="161.0" layoutY="601.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" selected="true" text="Report only unexpected">
+      <CheckBox fx:id="unexpectedEvents" layoutX="161.0" layoutY="534.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" selected="true" text="Report only unexpected">
          <font>
             <Font size="15.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="generateCSV" layoutX="161.0" layoutY="572.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" text="Generate .csv">
+      <CheckBox fx:id="generateCSV" layoutX="161.0" layoutY="505.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" text="Generate .csv">
          <font>
             <Font size="15.0" />
          </font>
       </CheckBox>
+      <Label layoutX="951.0" layoutY="595.0" text="©K. Gibert, IDEAI-UPC, 2023">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
     </children>
 
 </AnchorPane>
