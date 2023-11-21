@@ -1,5 +1,6 @@
 package sceneController;
 
+import Functions.RemoveFolders;
 import controllers.MainController;
 import controllers.ResultController;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +43,7 @@ public class SceneController {
 
     public void close(){
         closeAll();
+        RemoveFolders.getInstance().removeFolders();    
         this.mainStage.close();
     }
 
