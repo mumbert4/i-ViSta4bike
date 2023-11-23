@@ -4,6 +4,8 @@ Created on Tue Oct 24 00:54:25 2023
 
 @author: User
 """
+
+
 import json
 import joblib
 import pandas as pd
@@ -34,18 +36,15 @@ def solucionApp (barrio, franja, rutaCSV):
     # =============================================================================
     # Declaramos las rutas necesarias
     PATH = os.getcwd()
+    
+    
     OUTPUTDIR = PATH + "/../Output/"
     INPUTDIR = PATH + "/../Input/"
     MODELS = PATH + "/../models/"
     
     GRAFSINPUT = INPUTDIR + "Grafs/"
     STATIONSINPUT = INPUTDIR + "Stations/"
-    
-    
-    # =============================================================================
-    #fichero = "Trips_2021_05.csv"
-       
-    # =============================================================================
+
     # Obtener la fecha de hoy
     hoy = dt.date.today()
     
@@ -64,6 +63,7 @@ def solucionApp (barrio, franja, rutaCSV):
     # Leemos los datos de entrada
     datosEntrada = pd.read_csv(rutaCSV)
     
+
     estacionesSeleccionadas = estaciones[barrio]
     
     # Nos quedamos con los datos necesarios a nivel de barrio
@@ -93,11 +93,25 @@ def solucionApp (barrio, franja, rutaCSV):
         os.makedirs(CARPETAOUTPUT)
     
     # Realizamos los dibujos de los grafos
-    funcionesGraphs.getPlotsInInterval(matrizDesplazamientos, estacionesSeleccionadas, estacionesEspecificas, neighbourhood_name = barrio, time_zone = franjaAve, tipo = "day")
+    funcionesGraphs.getPlotsInInterval(matrizDesplazamientos, estacionesSeleccionadas, estacionesEspecificas, neighbourhood_name = barrio, 
+                       time_zone = franjaAve, tipo = "day")
     
-    # Copiamos en la carpeta Output el grafo average necesarios
-    shutil.copy(GRAFSINPUT + "graf_" + str(barrioAve) + str(franjaAve) + str(diaAve) + ".png", CARPETAOUTPUT + "/Graficos_average_" + str(barrioAve) + str(franjaAve) + ".png")
-		
+    # Llegim les dades del grafos 
+    ## grafo_average = pd.read_csv(GRAFSINPUT + "graf_" + str(barrioAve) + str(diaAve) + str(franjaAve) + ".csv")
+    
+    ficheroPNGaverageINPUT = "graf_" + str(barrioAve) + str(diaAve) + str(franjaAve) + ".png"
+    ficheroPNGaverageOUTPUT = "Graficos_average_" + str(barrioAve) + str(franjaAve) + ".png"
+	
+	# Movemos el grafo medio de input a la carpeta output con la fecha correspondiente
+	# Mover el archivo a la carpeta de salida
+    shutil.copy(GRAFSINPUT + ficheroPNGaverageINPUT, CARPETAOUTPUT + "/" + ficheroPNGaverageOUTPUT)
+	
+    # Añadimos el nombre de las columnas
+    ## grafo_average.columns = pd.Index(estacionesSeleccionadas, name = "Start Station Id",dtype= np.int64)
+    ## grafo_average.index = pd.Index(estacionesSeleccionadas, name = "End Station Id",dtype= np.int64)
+    
+    ## funcionesGraphs.getPlotsInInterval(grafo_average, estacionesSeleccionadas, estacionesEspecificas, neighbourhood_name = barrio, time_zone = franjaAve, tipo = "average")
+    
     # creamos la matriz para que pueda ser leeida por el modelo
     array = funcionesTreatment.convertirMatriz(matrizNormalizadaDesplazamientos, arrays = True)
     
@@ -119,17 +133,17 @@ def solucionApp (barrio, franja, rutaCSV):
     if response[0] != "Normal":
         # Llamamos a la página de barcelona activa
         txt = "Dia Anómalo"
-        agenda = pd.read_csv(CARPETAOUTPUT + "agendaBarcelona.csv")
-        
+        agenda = pd.read_csv(CARPETAOUTPUT + "/agendaBarcelona.csv", sep = ";")
+
         # Nos quedamos sólo con los eventos correspondientes a dicho evento 
-        eventos = agenda.loc[agenda.neighborhood_id == str(barrioAve), ]
-        
+        # agenda['neighborhood_id'] = [str(nb).zfill(2) for nb in agenda['neighborhood_id']]
+        eventos = agenda.loc[agenda.neighborhood_id == float(barrioAve), ]
         # Nos quedamos con unas columnas necesarias
         cols = ['name', 'start_date', 'end_date', 'address_name', 'street_number_1']
         eventos = eventos[cols]
         
-        eventos['start_date'] = [ev.strftime('%Y-%m-%d') if pd.notna(ev) else np.nan for ev in eventos['start_date']]
-        eventos['end_date'] = [ev.strftime('%Y-%m-%d') if pd.notna(ev) else np.nan for ev in eventos['end_date']]
+        # eventos['start_date'] = [datetime.strptime(ev, '%Y-%m-%d').strftime('%Y-%m-%d') if pd.notna(ev) else np.nan for ev in eventos['start_date']]
+        # eventos['end_date'] = [datetime.strptime(ev, '%Y-%m-%d').strftime('%Y-%m-%d') if pd.notna(ev) else np.nan for ev in eventos['end_date']]
         
         
         eventos['eventos'] = eventos.name + "( " + eventos.start_date + " - " + eventos.end_date + ", " + eventos.address_name + " " + eventos.street_number_1 + " )"
@@ -152,18 +166,24 @@ def solucionApp (barrio, franja, rutaCSV):
 
         eventos = eventos.groupby(['barrio', 'franja', 'respuesta'])['eventos'].apply(list).reset_index()        
         
-        items = [{"barrio" : eventos.barrio[0],
-         "franja" : eventos.franja[0], 
-         "respuesta" : eventos.respuesta[0],
-         "eventos" : eventos.eventos[0] }]
-          
+        if eventos.shape[0] > 0:
+            items = [{"barrio" : eventos.barrio[0],
+                 "franja" : eventos.franja[0], 
+                 "respuesta" : eventos.respuesta[0],
+                 "eventos" : eventos.eventos[0]}]
+        else: 
+        	items = [{"barrio" : eventos.barrio[0],
+                 "franja" : eventos.franja[0], 
+                 "respuesta" : eventos.respuesta[0],
+                 "eventos" : "Not activity registred"}]
+
     else: 
         items = [{"barrio" : barrio,
          "franja" : franja, 
          "respuesta" : "Expected",
          "eventos" : np.nan }]
 		
-        eventos = pd.DataFrame(items)
+    eventos = pd.DataFrame(items)
 		   
 	# Guardamos el fichero en un csv
     eventos2 = eventos

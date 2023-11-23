@@ -3,6 +3,7 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -18,6 +19,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import javafx.scene.layout.Background;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.web.WebView;
 import org.json.JSONArray;
 import org.json.JSONTokener;
@@ -43,6 +49,7 @@ public class ResultController implements Initializable {
 
     @FXML
     private ListView<String> infoText;
+
     public String id="";//barrio(03) y luego franja(03); ej:0303
     char[] letrasDias = {' ', 'D', 'L', 'M', 'M', 'J', 'V', 'S'};
 
@@ -50,8 +57,6 @@ public class ResultController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         System.out.println("Iniciando nueva escena");
-
-
     }
 
     public void setId(String id){

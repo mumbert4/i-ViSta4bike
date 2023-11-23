@@ -55,6 +55,7 @@ public class MainController implements Initializable {
     void importCSV(ActionEvent event){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Elige CSV");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")+"/.."));
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("CSV","*.csv")
         );
@@ -289,7 +290,7 @@ public class MainController implements Initializable {
             System.out.println("Faltan datos para realizar el script");
         }
         else{
-            //runPython();
+            runPython();
             if(displayPlots.isSelected()){
                 SceneController.getInstance().createSearch(selectedNeighbours, selectedHours);
             }
@@ -309,6 +310,12 @@ public class MainController implements Initializable {
     @FXML
     void exit(ActionEvent event) throws IOException {
         SceneController.getInstance().close();
+    }
+
+    @FXML
+    void launchInfo(ActionEvent event) throws IOException {
+        System.out.println("Boton de info pulsado");
+        SceneController.getInstance().showInfo();
     }
 }
 

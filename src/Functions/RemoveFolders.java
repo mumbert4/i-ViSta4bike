@@ -16,6 +16,7 @@ public class RemoveFolders {
     }
 
     public void removeFolders(){
+        System.out.println("Removing folders");
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String date = currentDate.format(formatter);

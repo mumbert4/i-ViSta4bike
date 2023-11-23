@@ -9,7 +9,8 @@ import numpy as np
 import requests
 import re
 import os
-import datetime as dt
+
+import datetime as dt  # Usar 'dt' como alias en lugar de 'datetime'
 
 
 import funcionesTreatment
@@ -22,13 +23,19 @@ def accesAgenda ():
     OUTPUTDIR = PATH + "/../Output/"
     
 	# Miramos si existe la carpeta, si no es el caso la creamos
-    CARPETAOUTPUT = OUTPUTDIR + dt.date.today().strftime("%Y%m%d")
+    hoy = dt.date.today()
+    CARPETAOUTPUT = OUTPUTDIR + hoy.strftime("%Y%m%d")
     if not os.path.exists(CARPETAOUTPUT):
         os.makedirs(CARPETAOUTPUT)
 
 	# Descargo la agenda de Barcelona
     agenda = funcionesTreatment.accesAgenda()
-    agenda.to_csv(CARPETAOUTPUT + "agendaBarcelona.csv",index=False)
+    agenda = agenda[['register_id', 'prefix', 'suffix', 'name', 
+					 'geo_epgs_25831', 'geo_epgs_23031', 'geo_epgs_4326', 
+					 'sections_data', 'start_date', 'end_date', 'place', 
+					 'district_name', 'district_id', 'neighborhood_name', 
+					 'neighborhood_id', 'address_name', 'street_number_1']]
+    agenda.to_csv(CARPETAOUTPUT + "/agendaBarcelona.csv",index=False, sep=';')
 
 if __name__ == "__main__":
     accesAgenda()

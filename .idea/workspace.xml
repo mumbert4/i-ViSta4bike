@@ -11,7 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a4ecacbc-fec8-4718-b34d-552f73f6a492" name="Changes" comment="Prova">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesoAgenda.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesoAgenda.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/procesoPython.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesoPython.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Functions/RemoveFolders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/RemoveFolders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ResultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sceneController/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sceneController/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sceneController/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sceneController/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/result.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="module-info" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -112,8 +120,8 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JAR Application.i-ViSta4bike2.jar (1)" />
-      <item itemvalue="JAR Application.i-ViSta4bike2.jar" />
       <item itemvalue="JAR Application.i-ViSta4bike.jar" />
+      <item itemvalue="JAR Application.i-ViSta4bike2.jar" />
     </list>
     <recent_temporary>
       <list>

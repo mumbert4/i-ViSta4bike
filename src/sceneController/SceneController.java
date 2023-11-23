@@ -1,6 +1,7 @@
 package sceneController;
 
 import Functions.RemoveFolders;
+import controllers.InfoController;
 import controllers.MainController;
 import controllers.ResultController;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ public class SceneController {
     public Scene main;
     public Stage mainStage;
 
-
+    public Stage infoStage;
     public HashMap<String,Stage> stages;
     public HashMap<String, String> franjas;
     public static SceneController getInstance() throws IOException {
@@ -38,12 +39,14 @@ public class SceneController {
         franjas.put("Evening","03");
         franjas.put("LateEvening","04");
         franjas.put("Night","05");
+
+        infoStage = new Stage();
     }
 
 
     public void close(){
         closeAll();
-        RemoveFolders.getInstance().removeFolders();    
+        //RemoveFolders.getInstance().removeFolders();
         this.mainStage.close();
     }
 
@@ -74,4 +77,11 @@ public class SceneController {
 
 
     }
+    public void showInfo() throws IOException {
+        FXMLLoader fxmlLoader= new FXMLLoader(InfoController.class.getResource("/views/info.fxml"));
+        infoStage.setScene(new Scene(fxmlLoader.load(),600,150));
+        infoStage.setResizable(false);
+        infoStage.show();
+    }
+
 }

@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.CheckComboBox?>
 
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
     <children>
         <ImageView disable="true" fitHeight="187.0" fitWidth="236.0" layoutX="1025.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
@@ -42,6 +43,7 @@
             </font>
         </Label>
         <CheckComboBox fx:id="horarioChoice" layoutX="538.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0" />
+
 
         <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -94,6 +96,11 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
+      <Button layoutX="1204.0" layoutY="367.0" mnemonicParsing="false" onAction="#launchInfo" style="-fx-background-radius: 20px; -fx-background-color: #169ccd;" text="i" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
     </children>
 
 </AnchorPane>
