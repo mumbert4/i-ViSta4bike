@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import org.controlsfx.control.CheckComboBox?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="800.0" prefWidth="1260.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <GridPane minHeight="100.0" prefHeight="100.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/Marca_UPC_IDEAI_BLAU.png" />
+               </image>
+            </ImageView>
+            <ImageView disable="true" fitHeight="107.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <image>
+                  <Image url="@../images/bicing_logo.png" />
+               </image>
+            </ImageView>
+            <ImageView disable="true" fitHeight="187.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+               <image>
+                  <Image url="@../images/pedalem_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane minHeight="50.0" prefHeight="76.0" prefWidth="1260.0" style="-fx-background-color: #169ccd;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="i-ViSta4bike®" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckComboBox fx:id="horarioChoice" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <CheckComboBox fx:id="barrioChoice" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <FlowPane hgap="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#importCSV" prefHeight="45.0" prefWidth="174.0" style="-fx-background-color: #169ccd;" text="Import CSV" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#launchInfo" style="-fx-background-radius: 20px; -fx-background-color: #169ccd;" text="i" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </FlowPane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="40.0" top="40.0" />
+         </VBox.margin>
+      </GridPane>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <CheckBox fx:id="displayPlots" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" selected="true" text="Display plots">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="generatePDF" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" text="Generate pdf report">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="unexpectedEvents" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" selected="true" text="Report only unexpected">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="generateCSV" mnemonicParsing="false" prefHeight="34.0" prefWidth="187.0" text="Generate .csv">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="fileInfo" alignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="file" alignment="CENTER" textAlignment="CENTER" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#okAction" prefHeight="45.0" prefWidth="104.0" text="OK">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <FlowPane.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#exit" prefHeight="45.0" prefWidth="104.0" text="Exit">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <FlowPane.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </FlowPane.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </FlowPane>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="40.0" top="40.0" />
+         </VBox.margin>
+      </GridPane>
+      <Pane minWidth="200.0" prefHeight="200.0" prefWidth="200.0" />
+      <GridPane minHeight="14.0" prefHeight="14.0" prefWidth="1220.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView disable="true" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT">
+               <image>
+                  <Image url="@../images/cidai_logo.png" />
+               </image>
+            </ImageView>
+            <Label text="©K. Gibert, IDEAI-UPC, 2023" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </GridPane>
+   </children>
+   <padding>
+      <Insets top="15.0" />
+   </padding>
+</VBox>

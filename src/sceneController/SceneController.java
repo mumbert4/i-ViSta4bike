@@ -30,7 +30,7 @@ public class SceneController {
     }
     private SceneController() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/mainAux.fxml"));
         this.main = new Scene(fxmlLoader.load(), 320, 240);
         this.stages = new HashMap<>();
         franjas= new HashMap<>();
@@ -59,7 +59,7 @@ public class SceneController {
         for(String n : neighbours){
             for(String h: hours){
 
-                fxmlLoader = new FXMLLoader(ResultController.class.getResource("/views/result.fxml"));
+                fxmlLoader = new FXMLLoader(ResultController.class.getResource("/views/resultAux.fxml"));
                 Stage aux = new Stage();
                 aux.setScene(new Scene(fxmlLoader.load(), 320, 240));
                 aux.setWidth(Toolkit.getDefaultToolkit().getScreenSize().getWidth()-200);
@@ -77,9 +77,22 @@ public class SceneController {
 
 
     }
+
+    public void showLoading() throws IOException {
+        System.out.println("Enseñando loading");
+        FXMLLoader fxmlLoader= new FXMLLoader(InfoController.class.getResource("/views/wait.fxml"));
+        infoStage.setScene(new Scene(fxmlLoader.load(),400,50));
+        infoStage.setResizable(false);
+        infoStage.show();
+        System.out.println("Loading enseñado");
+    }
+
+    public void closeLoading(){
+        if(infoStage.isShowing())infoStage.close();
+    }
     public void showInfo() throws IOException {
         FXMLLoader fxmlLoader= new FXMLLoader(InfoController.class.getResource("/views/info.fxml"));
-        infoStage.setScene(new Scene(fxmlLoader.load(),600,150));
+        infoStage.setScene(new Scene(fxmlLoader.load(),500,50));
         infoStage.setResizable(false);
         infoStage.show();
     }

@@ -28,12 +28,12 @@ public class MainController implements Initializable {
     @FXML
     private CheckComboBox <String> horarioChoice;
 
+
     @FXML
     private Label fileInfo;
 
     @FXML
     private Label file;
-
     @FXML
     private CheckBox  unexpectedEvents;
 
@@ -63,8 +63,10 @@ public class MainController implements Initializable {
 
 
         if(f==null){
+
             fileInfo.setText("No has elegido ningun fichero");
             file.setText("");
+
         }
         else{
             System.out.println("Fitxer CSV seleccionat: " + f.getAbsolutePath());
@@ -290,7 +292,7 @@ public class MainController implements Initializable {
             System.out.println("Faltan datos para realizar el script");
         }
         else{
-            runPython();
+            //runPython();
             if(displayPlots.isSelected()){
                 SceneController.getInstance().createSearch(selectedNeighbours, selectedHours);
             }

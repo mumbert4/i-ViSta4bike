@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="266.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InfoController">
+<AnchorPane prefHeight="54.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.InfoController">
    <children>
-      <Label layoutX="78.0" layoutY="56.0" text="Load the database of routes to analyze.">
+      <Label layoutX="70.0" layoutY="14.0" text="Select the database with the trips to be analysed.">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font size="16.0" />
          </font>
       </Label>
    </children>

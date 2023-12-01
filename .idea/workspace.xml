@@ -11,15 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a4ecacbc-fec8-4718-b34d-552f73f6a492" name="Changes" comment="Prova">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesoAgenda.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesoAgenda.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/procesoPython.py" beforeDir="false" afterPath="$PROJECT_DIR$/procesoPython.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions/RemoveFolders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/RemoveFolders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Functions/CreatePDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/CreatePDF.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ResultController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sceneController/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sceneController/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sceneController/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sceneController/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/info.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/result.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/result.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/mainAux.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/mainAux.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/resultAux.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/resultAux.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

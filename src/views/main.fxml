@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.CheckComboBox?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
@@ -42,7 +41,6 @@
                 <Font name="System Bold" size="13.0" />
             </font>
         </Label>
-        <CheckComboBox fx:id="horarioChoice" layoutX="538.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0" />
 
 
         <ImageView fitHeight="118.0" fitWidth="472.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
@@ -59,7 +57,6 @@
                 </Label>
             </children>
         </Pane>
-        <CheckComboBox fx:id="barrioChoice" layoutX="128.0" layoutY="366.0" prefHeight="45.0" prefWidth="174.0" />
 
         <Button layoutX="954.0" layoutY="515.0" mnemonicParsing="false" onAction="#okAction" prefHeight="45.0" prefWidth="104.0" text="OK">
             <font>
